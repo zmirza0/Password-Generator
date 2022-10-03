@@ -1,6 +1,16 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function randomInt(min, max) {
+  var rand = Math.random()
+  return Math.floor(min*(1 - rand) + rand*max)
+
+}
+
+function getRandomItem(list){
+  return list[randomInt(0, list.length - 1)]
+}
+
 function generatePassword() {
 
   var userInput = window.prompt("How many characters do you want your character to be?")
@@ -43,6 +53,13 @@ function generatePassword() {
 
   if (userWantsUppercase === true){
     optionsCart.push(uppercaseList)
+  }
+
+  var generatedPassword = ""
+
+  for (var i = 0; i < passwordLength; i++) {
+    var randomList = getRandomItem(optionsCart)
+    var randomChar = getRandomItem(randomList)
   }
 
 }
